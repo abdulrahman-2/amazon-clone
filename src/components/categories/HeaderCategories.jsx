@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import Loading from "@/app/loading";
 
 const HeaderCategories = () => {
   const { categories, loading, error } = useSelector(
@@ -11,7 +12,7 @@ const HeaderCategories = () => {
   return (
     <div>
       {loading ? (
-        <p className="text-white">Loading categories...</p>
+        <Loading />
       ) : error ? (
         <p className="text-white">Error loading categories: {error}</p>
       ) : (
