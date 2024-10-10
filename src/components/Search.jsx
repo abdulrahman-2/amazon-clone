@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { HiMiniXMark } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "@/app/loading";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,7 +22,7 @@ const Search = () => {
   return (
     <div className="flex items-center relative">
       {loading ? (
-        <p className="text-white">Loading categories...</p>
+        <Loading />
       ) : error ? (
         <p className="text-white">Error loading categories: {error}</p>
       ) : (

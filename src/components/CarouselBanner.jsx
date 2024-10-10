@@ -29,12 +29,11 @@ const CarouselBanner = () => {
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        delay: 8000,
+        delay: 7000,
         disableOnInteraction: false,
       }}
       loop={true}
-      navigation={true}
-      modules={[Autoplay, Navigation]}
+      modules={[Autoplay]}
       className="mySwiper"
     >
       {bannerImages.map((banner) => (
@@ -42,7 +41,7 @@ const CarouselBanner = () => {
           <Image
             src={banner.source}
             alt={banner.title}
-            className="w-full h-[300px] md:h-[calc(100vh-110px)] object-cover"
+            className="w-full h-[250px] md:h-[calc(100vh-110px)] object-cover"
           />
         </SwiperSlide>
       ))}

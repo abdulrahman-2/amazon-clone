@@ -23,7 +23,7 @@ const Header = () => {
           <Image
             src={logo}
             alt="logo"
-            className="w-[90px] lg:w-[120px] object-cover headerItem"
+            className="w-[90px] lg:w-[120px] object-cover mt-2"
             priority
           />
         </Link>
@@ -59,12 +59,12 @@ const Header = () => {
         >
           Orders
         </Link>
-        <div className="flex items-center gap-2 ml-auto">
+        <div className="flex items-center ml-auto">
           <div className="lg:hidden flex items-center text-white text-sm">
             <span className="flex items-center">
               sign in
               <RiArrowDropRightLine
-                size={20}
+                size={22}
                 className="text-amazon_orangeDark"
               />
             </span>
@@ -72,7 +72,7 @@ const Header = () => {
           </div>
           <Link
             href="/cart"
-            className="text-white headerItem font-semibold flex"
+            className="text-white md:headerItem font-semibold flex"
           >
             <Image
               src={cartIcon}
@@ -80,7 +80,7 @@ const Header = () => {
               className="w-auto h-11 object-cover"
             />
             <span className="self-end">Cart</span>
-            <span className="absolute right-[67px] top-[20px] text-sm text-amazon_orangeDark">
+            <span className="absolute right-[62px] md:right-[67px] top-[20px] text-sm text-amazon_orangeDark">
               0
             </span>
           </Link>
@@ -92,7 +92,7 @@ const Header = () => {
 
       {/* bottom header  */}
 
-      <div className="px-3 bg-amazon_light h-[40px] flex items-center">
+      <div className="px-3 bg-amazon_light h-[40px] flex items-center hide-scrollbar">
         <HeaderCategories />
       </div>
     </div>

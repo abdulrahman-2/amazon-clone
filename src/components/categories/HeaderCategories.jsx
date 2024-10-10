@@ -15,20 +15,22 @@ const HeaderCategories = () => {
       ) : error ? (
         <p className="text-white">Error loading categories: {error}</p>
       ) : (
-        <div className="text-sm text-white w-full">
-          <div className="flex overflow-hidden gap-4">
-            {categories.slice(0, 12).map((category) => (
-              <div key={category} className="headerItem h-full">
-                <Link href={`/${category}`}>{category.split("-")[0]}</Link>
-              </div>
-            ))}
-            <div className="headerItem h-full">
-              <Link href={"/sell"}>Sell</Link>
-            </div>
-            <div className="headerItem h-full">
-              <Link href={"/help"}>Help</Link>
-            </div>
-          </div>
+        <div className="flex gap-4 w-full text-white">
+          {categories.slice(0, 14).map((category) => (
+            <Link
+              key={category}
+              href={`/${category}`}
+              className="headerItem h-full flex-shrink-0"
+            >
+              {category.split("-")[0]}
+            </Link>
+          ))}
+          <Link href="/sell" className="headerItem h-full flex-shrink-0">
+            Sell
+          </Link>
+          <Link href="/help" className="headerItem h-full flex-shrink-0">
+            Help
+          </Link>
         </div>
       )}
     </div>

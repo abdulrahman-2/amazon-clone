@@ -8,7 +8,7 @@ const Footer = () => {
     <div>
       {/* top footer  */}
       <div className="  bg-amazon_light text-white">
-        <div className="container p-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container px-3 py-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <h3 className="mb-4 font-bold text-xl">Get to Know Us</h3>
             <ul className="flex flex-col gap-2 text-xs">
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <div className="flex items-center justify-center gap-6 md:gap-20 p-10">
+        <div className="flex items-center justify-center gap-6 md:gap-20 px-3 py-10">
           <Link href="/">
             <Image
               src={logo}
@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
       {/* bottom footer  */}
       <div className="bg-amazon_blue text-white">
-        <div className="container p-7 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container px-3 py-7 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex flex-col gap-5">
             <ul className="flex flex-col gap-1 text-xs">
               <li className="font-bold text-sm">Amazon Advertising</li>
@@ -120,9 +120,8 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <p className="text-white text-center mx-auto text-sm pb-5 max-w-[400px]">
-          Conditions of Use & Sale Privacy Notice Interest-Based Ads ©1996–2024,
-          Abdulrahman Attallah, Inc. or its affiliates
+        <p className="text-white px-3 text-center mx-auto text-sm pb-5 max-w-[400px]">
+          Made With ❤️ By Abdulraham Attallah
         </p>
       </div>
     </div>
