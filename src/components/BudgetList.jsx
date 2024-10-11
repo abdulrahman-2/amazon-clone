@@ -19,7 +19,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Image from "next/image";
-import Link from "next/link";
+import Title from "./title/Title";
 
 const BudgetList = () => {
   const budgets = [
@@ -37,17 +37,10 @@ const BudgetList = () => {
   return (
     <div className="container mx-auto mb-5 p-3 -mt-5">
       <div className="relative bg-white rounded-md p-3 md:p-5">
-        <div className="mb-5 flex items-center gap-5">
-          <h3 className="text-xl font-semibold">
-            Save more with the Budget Store
-          </h3>
-          <Link
-            href="/budget"
-            className="text-[#057487] hover:underline hover:text-red-500"
-          >
-            Shop all deals
-          </Link>
-        </div>
+        <Title
+          title={"Save more with the Budget Store"}
+          link={"Shop all deals"}
+        />
         <Swiper
           spaceBetween={10}
           pagination={{
@@ -82,11 +75,15 @@ const BudgetList = () => {
         >
           {budgets.map((budget) => (
             <SwiperSlide key={budget.id}>
-              <div>
+              <div className="relative w-full h-[220px]">
                 <Image
                   src={budget.img}
-                  alt={budget.id}
-                  className="w-full h-full object-cover"
+                  alt={`Budget item ${budget.id}`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 640px) 50vw, 
+                         (max-width: 768px) 33vw, 
+                         (max-width: 1024px) 25vw, 20vw"
                 />
               </div>
             </SwiperSlide>

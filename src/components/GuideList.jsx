@@ -2,15 +2,15 @@
 
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import {
-  perks_1,
-  perks_2,
-  perks_3,
-  perks_4,
-  perks_5,
-  perks_6,
-  perks_7,
-  perks_8,
-  perks_9,
+  guide_1,
+  guide_2,
+  guide_3,
+  guide_4,
+  guide_5,
+  guide_6,
+  guide_7,
+  guide_8,
+  guide_9,
 } from "../assets/index";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,31 +21,34 @@ import { Navigation } from "swiper/modules";
 import Image from "next/image";
 import Title from "./title/Title";
 
-const ShoppingPerks = () => {
+const GuideList = () => {
   const budgets = [
-    { id: 1, img: perks_1 },
-    { id: 2, img: perks_2 },
-    { id: 3, img: perks_3 },
-    { id: 4, img: perks_4 },
-    { id: 5, img: perks_5 },
-    { id: 6, img: perks_6 },
-    { id: 7, img: perks_7 },
-    { id: 8, img: perks_8 },
-    { id: 9, img: perks_9 },
+    { id: 1, img: guide_1 },
+    { id: 2, img: guide_2 },
+    { id: 3, img: guide_3 },
+    { id: 4, img: guide_4 },
+    { id: 5, img: guide_5 },
+    { id: 6, img: guide_6 },
+    { id: 7, img: guide_7 },
+    { id: 8, img: guide_8 },
+    { id: 9, img: guide_9 },
   ];
 
   return (
-    <div className="container mx-auto mb-5 p-3 -mt-1">
+    <div className="container mx-auto mb-5 p-3 -mt-5">
       <div className="relative bg-white rounded-md p-3 md:p-5">
-        <Title title={"Enjoy your shopping perks"} link={"Start Shopping"} />
+        <Title
+          title={"Save more with the Budget Store"}
+          link={"Shop all deals"}
+        />
         <Swiper
           spaceBetween={10}
           pagination={{
             clickable: true,
           }}
           navigation={{
-            nextEl: ".next-perks",
-            prevEl: ".prev-perks",
+            nextEl: ".next-budget",
+            prevEl: ".prev-budget",
           }}
           breakpoints={{
             0: {
@@ -75,7 +78,7 @@ const ShoppingPerks = () => {
               <div className="relative w-full h-[220px]">
                 <Image
                   src={budget.img}
-                  alt={budget.id}
+                  alt={`Budget item ${budget.id}`}
                   fill
                   className="object-contain"
                   sizes="(max-width: 640px) 50vw, 
@@ -87,10 +90,10 @@ const ShoppingPerks = () => {
           ))}
         </Swiper>
         <div className="navigateBtn">
-          <button className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] left-0 prev-perks h-24 bg-white/60 rounded-e-lg">
+          <button className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] left-0 prev-budget h-24 bg-white/60 rounded-e-lg">
             <MdArrowBackIos size={30} />
           </button>
-          <button className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] right-0 next-perks h-24 bg-white/60 rounded-s-lg">
+          <button className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] right-0 next-budget h-24 bg-white/60 rounded-s-lg">
             <MdArrowForwardIos size={30} />
           </button>
         </div>
@@ -99,4 +102,4 @@ const ShoppingPerks = () => {
   );
 };
 
-export default ShoppingPerks;
+export default GuideList;

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import Loading from "@/app/loading";
+import Sidebar from "../common/Sidebar";
 
 const HeaderCategories = () => {
   const { categories, loading, error } = useSelector(
@@ -16,7 +17,11 @@ const HeaderCategories = () => {
       ) : error ? (
         <p className="text-white">Error loading categories: {error}</p>
       ) : (
-        <div className="flex gap-4 w-full text-white">
+        <div className="flex items-center gap-4 w-full text-white">
+          <div className="hidden md:flex items-center gap-2">
+            <Sidebar />
+            <span>All</span>
+          </div>
           {categories.slice(0, 14).map((category) => (
             <Link
               key={category}

@@ -4,11 +4,6 @@ const ProductCard = ({ product }) => {
   const { images, price, discountPrice, discountPercentage, description } =
     product;
 
-  // Function to truncate the description if it's too long
-  const truncateDescription = (text, maxLength) => {
-    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
-  };
-
   return (
     <div className="border rounded-md overflow-hidden shadow-md">
       <div className="relative bg-[#F7F8F8] p-5 h-[120px] md:h-[200px]">
@@ -37,7 +32,7 @@ const ProductCard = ({ product }) => {
           <sup className="text-xs">EGP</sup>
           {price}
         </span>
-        <p className="text-sm mt-1">{truncateDescription(description, 20)}</p>
+        <p className="text-sm mt-1 line-clamp-2">{description}</p>
       </div>
     </div>
   );

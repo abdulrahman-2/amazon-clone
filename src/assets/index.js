@@ -8,8 +8,8 @@ import bdFlag from "./bdFlag.webp";
 import cartIcon from "./cart.svg";
 import egyptFlag from "./egypt.svg";
 
-import tvImage from "../assets/category/tv.jpg";
-import cookwareImage from "../assets/category/Cookware.jpg";
+import car_compressors from "../assets/category/Car_compressors.jpg";
+import laptops from "../assets/category/laptops.jpg";
 import mattressImage from "../assets/category/mattresses.jpg";
 import offImage from "../assets/category/off.jpg";
 
@@ -48,6 +48,16 @@ import perks_7 from "../assets/shopping-perks/shopping_perks_7.jpg";
 import perks_8 from "../assets/shopping-perks/shopping_perks_8.jpg";
 import perks_9 from "../assets/shopping-perks/shopping_perks_9.jpg";
 
+import guide_1 from "../assets/guide/guide_1.jpg";
+import guide_2 from "../assets/guide/guide_2.jpg";
+import guide_3 from "../assets/guide/guide_3.jpg";
+import guide_4 from "../assets/guide/guide_4.jpg";
+import guide_5 from "../assets/guide/guide_5.jpg";
+import guide_6 from "../assets/guide/guide_6.jpg";
+import guide_7 from "../assets/guide/guide_7.jpg";
+import guide_8 from "../assets/guide/guide_8.jpg";
+import guide_9 from "../assets/guide/guide_9.jpg";
+
 export {
   logo,
   bannerImgOne,
@@ -58,8 +68,8 @@ export {
   bdFlag,
   cartIcon,
   egyptFlag,
-  tvImage,
-  cookwareImage,
+  car_compressors,
+  laptops,
   mattressImage,
   offImage,
   musical,
@@ -92,4 +102,13 @@ export {
   perks_7,
   perks_8,
   perks_9,
+  guide_1,
+  guide_2,
+  guide_3,
+  guide_4,
+  guide_5,
+  guide_6,
+  guide_7,
+  guide_8,
+  guide_9,
 };

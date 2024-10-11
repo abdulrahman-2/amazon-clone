@@ -15,8 +15,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Title from "../title/Title";
+import Link from "next/link";
+import Image from "next/image";
 
-const ProductsList = ({ start, end, title, linkName }) => {
+const ProductsImageList = ({ start, end, title, linkName }) => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
 
@@ -70,7 +72,17 @@ const ProductsList = ({ start, end, title, linkName }) => {
             >
               {products.slice(start, end).map((product) => (
                 <SwiperSlide key={product.id}>
-                  <ProductCard product={product} />
+                  <Link href={`product/${product.id}`}>
+                    <div className="relative h-[120px] md:h-[200px]">
+                      <Image
+                        src={product.images[0]}
+                        alt="product image"
+                        width={100}
+                        height={200}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -95,4 +107,4 @@ const ProductsList = ({ start, end, title, linkName }) => {
   );
 };
 
-export default ProductsList;
+export default ProductsImageList;

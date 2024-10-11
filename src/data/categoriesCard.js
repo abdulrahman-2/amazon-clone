@@ -1,6 +1,6 @@
 import {
-  tvImage,
-  cookwareImage,
+  car_compressors,
+  laptops,
   mattressImage,
   offImage,
   musical,
@@ -20,12 +20,12 @@ import {
 export const offers = [
   {
     title: "Electronics Festival | Up to 30% off",
-    image: tvImage,
+    image: laptops,
     linkName: "See More Offers",
   },
   {
     title: "Shop like a boss",
-    image: cookwareImage,
+    image: car_compressors,
     linkName: "See More Deals",
   },
   {

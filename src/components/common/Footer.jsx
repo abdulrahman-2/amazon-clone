@@ -64,7 +64,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-2 p-1 border border-amazon_lightText rounded-sm">
               <Image src={egyptFlag} alt="egypt flag" className="w-[20px]" />
-              <span>English</span>
+              <span>Egypt</span>
             </div>
           </div>
         </div>

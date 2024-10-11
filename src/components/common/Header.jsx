@@ -9,16 +9,16 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import Search from "../Search";
 import SignInBtn from "../SignInBtn";
 import HeaderCategories from "../categories/HeaderCategories";
+import Sidebar from "./Sidebar";
 
 const Header = () => {
   return (
     <div className="sticky top-0 z-50">
       {/* top header  */}
       <div className="px-3 bg-amazon_blue h-[60px] flex items-center gap-1 md:gap-3">
-        <IoMenu
-          size={35}
-          className="text-white cursor-pointer block lg:hidden"
-        />
+        <div className="flex md:hidden">
+          <Sidebar />
+        </div>
         <Link href="/">
           <Image
             src={logo}
@@ -77,10 +77,10 @@ const Header = () => {
             <Image
               src={cartIcon}
               alt="cart"
-              className="w-auto h-11 object-cover"
+              className="w-auto h-8 md:h-11 object-cover"
             />
-            <span className="self-end">Cart</span>
-            <span className="absolute right-[62px] md:right-[67px] top-[20px] text-sm text-amazon_orangeDark">
+            <span className="self-end hidden md:flex">Cart</span>
+            <span className="absolute right-[22px] md:right-[67px] top-[22px] md:top-[20px] text-xs md:text-sm text-amazon_orangeDark">
               0
             </span>
           </Link>

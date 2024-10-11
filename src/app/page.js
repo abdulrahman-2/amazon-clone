@@ -1,6 +1,8 @@
 import BudgetList from "@/components/BudgetList";
 import CarouselBanner from "@/components/CarouselBanner";
 import CategoryList from "@/components/categories/CategoryList";
+import GuideList from "@/components/GuideList";
+import ProductsImageList from "@/components/products/ProductsImagesList";
 import ProductsList from "@/components/products/ProductsList";
 import ShoppingPerks from "@/components/ShoppingPerks";
 import {
@@ -49,6 +51,26 @@ const Home = () => {
 
       <div className="-mt-5">
         <CategoryList categories={organizersCategories} />
+      </div>
+
+      <ProductsImageList
+        title={"For Him, For Her & More"}
+        linkName={"Shope Now"}
+        start={0}
+        end={15}
+      />
+
+      <div className="-mt-5">
+        <ProductsImageList
+          title={"Hair Styling, Electric Shavers & More"}
+          linkName={"Shope Now"}
+          start={15}
+          end={30}
+        />
+      </div>
+
+      <div className="-mt-5">
+        <GuideList />
       </div>
     </main>
   );
