@@ -12,7 +12,7 @@ const HeaderCategories = () => {
   return (
     <div>
       {loading ? (
-        <Loading />
+        <Loading color="white" width={30} height={30} />
       ) : error ? (
         <p className="text-white">Error loading categories: {error}</p>
       ) : (

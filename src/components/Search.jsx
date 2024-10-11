@@ -22,7 +22,7 @@ const Search = () => {
   return (
     <div className="flex items-center relative">
       {loading ? (
-        <Loading />
+        <Loading color="white" width={30} height={30} />
       ) : error ? (
         <p className="text-white">Error loading categories: {error}</p>
       ) : (
