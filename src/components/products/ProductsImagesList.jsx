@@ -1,36 +1,47 @@
 "use client";
 
-import { useRef } from "react";
-import { fetchProducts } from "@/redux/ProductsSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import ProductCard from "./ProductCard";
+import { useEffect, useRef, useState } from "react";
 import Loading from "@/app/loading";
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdArrowBackIos } from "react-icons/md";
+import Title from "../title/Title";
+import Link from "next/link";
+import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import Title from "../title/Title";
-import Link from "next/link";
-import Image from "next/image";
+import { getProducts } from "@/lib/data/productData";
 
 const ProductsImageList = ({ start, end, title, linkName }) => {
-  const dispatch = useDispatch();
-  const { products, loading, error } = useSelector((state) => state.products);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getAllProducts = async () => {
+      setLoading(true);
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.log("Error fetching products:", error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getAllProducts();
+  }, []); // Add start and end as dependencies if needed
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
   return (
-    <div className="container mx-auto mb-5 p-3">
+    <div className="container mx-auto p-3">
       <div className="relative bg-white rounded-md p-3 md:p-5">
         {loading ? (
           <Loading color="black" width={80} height={80} />
@@ -91,13 +102,13 @@ const ProductsImageList = ({ start, end, title, linkName }) => {
         <div className="navigateBtn">
           <button
             ref={prevRef}
-            className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] left-0 h-24 bg-white/60 rounded-e-lg"
+            className="absolute w-10 md:w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] left-0 h-20 md:h-24 text-black/50 bg-white/60 rounded-e-lg"
           >
             <MdArrowBackIos size={30} />
           </button>
           <button
             ref={nextRef}
-            className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] right-0 h-24 bg-white/60 rounded-s-lg"
+            className="absolute w-10 md:w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] right-0 h-20 md:h-24 text-black/50 bg-white/60 rounded-s-lg"
           >
             <MdArrowForwardIos size={30} />
           </button>

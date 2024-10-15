@@ -1,51 +1,34 @@
 "use client";
 
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-import {
-  perks_1,
-  perks_2,
-  perks_3,
-  perks_4,
-  perks_5,
-  perks_6,
-  perks_7,
-  perks_8,
-  perks_9,
-} from "../assets/index";
+import Image from "next/image";
+import Title from "../title/Title";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import Image from "next/image";
-import Title from "./title/Title";
+import { useRef } from "react";
 
-const ShoppingPerks = () => {
-  const budgets = [
-    { id: 1, img: perks_1 },
-    { id: 2, img: perks_2 },
-    { id: 3, img: perks_3 },
-    { id: 4, img: perks_4 },
-    { id: 5, img: perks_5 },
-    { id: 6, img: perks_6 },
-    { id: 7, img: perks_7 },
-    { id: 8, img: perks_8 },
-    { id: 9, img: perks_9 },
-  ];
+const OffersList = ({ offers, title, link }) => {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
-    <div className="container mx-auto mb-5 p-3 -mt-1">
+    <div className="container mx-auto p-3">
       <div className="relative bg-white rounded-md p-3 md:p-5">
-        <Title title={"Enjoy your shopping perks"} link={"Start Shopping"} />
+        <Title title={title} link={link} />
         <Swiper
           spaceBetween={10}
           pagination={{
             clickable: true,
           }}
-          navigation={{
-            nextEl: ".next-perks",
-            prevEl: ".prev-perks",
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
           }}
           breakpoints={{
             0: {
@@ -70,12 +53,12 @@ const ShoppingPerks = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {budgets.map((budget) => (
-            <SwiperSlide key={budget.id}>
+          {offers.map((offer) => (
+            <SwiperSlide key={offer.id}>
               <div className="relative w-full h-[220px]">
                 <Image
-                  src={budget.img}
-                  alt={budget.id}
+                  src={offer.img}
+                  alt={`Budget item ${offer.id}`}
                   fill
                   className="object-contain"
                   sizes="(max-width: 640px) 50vw, 
@@ -87,10 +70,16 @@ const ShoppingPerks = () => {
           ))}
         </Swiper>
         <div className="navigateBtn">
-          <button className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] left-0 prev-perks h-24 bg-white/60 rounded-e-lg">
+          <button
+            ref={prevRef}
+            className="absolute w-10 md:w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] left-0 h-20 text-black/50 md:h-24 bg-white/60 rounded-e-lg"
+          >
             <MdArrowBackIos size={30} />
           </button>
-          <button className="absolute w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] right-0 next-perks h-24 bg-white/60 rounded-s-lg">
+          <button
+            ref={nextRef}
+            className="absolute w-10 md:w-16 flex items-center justify-center shadow-md z-20 top-1/2 translate-y-[-50%] right-0 h-20 text-black/50 md:h-24 bg-white/60 rounded-s-lg"
+          >
             <MdArrowForwardIos size={30} />
           </button>
         </div>
@@ -99,4 +88,4 @@ const ShoppingPerks = () => {
   );
 };
 
-export default ShoppingPerks;
+export default OffersList;

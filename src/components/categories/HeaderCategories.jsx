@@ -1,44 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import Loading from "@/app/loading";
 import Sidebar from "../common/Sidebar";
+import { getCategoriesList } from "@/lib/data/categoiresData";
+import { useEffect, useState } from "react";
 
 const HeaderCategories = () => {
-  const { categories, loading, error } = useSelector(
-    (state) => state.categories
-  );
+  const [categoriesList, setCategoriesList] = useState([]);
+
+  useEffect(() => {
+    const fetchCategoriesList = async () => {
+      try {
+        const data = await getCategoriesList();
+        setCategoriesList(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchCategoriesList();
+  });
 
   return (
     <div>
-      {loading ? (
-        <Loading color="white" width={30} height={30} />
-      ) : error ? (
-        <p className="text-white">Error loading categories: {error}</p>
-      ) : (
-        <div className="flex items-center gap-4 w-full text-white">
-          <div className="hidden md:flex items-center gap-2">
-            <Sidebar />
-            <span>All</span>
-          </div>
-          {categories.slice(0, 14).map((category) => (
-            <Link
-              key={category}
-              href={`/${category}`}
-              className="headerItem h-full flex-shrink-0"
-            >
-              {category.split("-")[0]}
-            </Link>
-          ))}
-          <Link href="/sell" className="headerItem h-full flex-shrink-0">
-            Sell
-          </Link>
-          <Link href="/help" className="headerItem h-full flex-shrink-0">
-            Help
-          </Link>
+      <div className="flex items-center gap-4 w-full text-white">
+        <div className="hidden md:flex items-center gap-2">
+          <Sidebar categoriesList={categoriesList} />
         </div>
-      )}
+        <Link href="/categories" className="headerItem h-full flex-shrink-0">
+          All Categories
+        </Link>
+        {categoriesList.slice(0, 10).map((category) => (
+          <Link
+            key={category}
+            href={`/${category}`}
+            className="headerItem h-full flex-shrink-0"
+          >
+            {category}
+          </Link>
+        ))}
+        <Link href="/sell" className="headerItem h-full flex-shrink-0">
+          Sell
+        </Link>
+        <Link href="/help" className="headerItem h-full flex-shrink-0">
+          Help
+        </Link>
+      </div>
     </div>
   );
 };

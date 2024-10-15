@@ -1,76 +1,77 @@
-import BudgetList from "@/components/BudgetList";
-import CarouselBanner from "@/components/CarouselBanner";
+import CarouselBanner from "@/components/banner/CarouselBanner";
 import CategoryList from "@/components/categories/CategoryList";
-import GuideList from "@/components/GuideList";
 import ProductsImageList from "@/components/products/ProductsImagesList";
 import ProductsList from "@/components/products/ProductsList";
-import ShoppingPerks from "@/components/ShoppingPerks";
 import {
+  budgets,
   deals,
   gamingCategories,
+  guides,
   offers,
   organizersCategories,
-} from "@/data/categoriesCard";
+  shoppingPerks,
+} from "@/data/data";
+import OffersList from "@/components/offersLists/OffersList";
 
 const Home = () => {
   return (
-    <main>
+    <main className="bg-[#e3e6e6]">
       <CarouselBanner />
 
-      <div className="-mt-[100px] md:-mt-[415px] relative z-30 mb-5">
+      <div className="-mt-[100px] md:-mt-[415px] relative z-30 pb-10">
         <CategoryList categories={offers} />
-      </div>
 
-      <div className="-mt-5">
         <CategoryList categories={deals} />
-      </div>
 
-      <ProductsList
-        start={0}
-        end={8}
-        title={"Shop Today's Deals"}
-        linkName={"See All Deals"}
-      />
+        <ProductsList
+          start={0}
+          end={8}
+          title={"Shop Today's Deals"}
+          linkName={"See All Deals"}
+        />
 
-      <BudgetList />
+        <OffersList
+          offers={budgets}
+          title={"Save more with the Budget Store"}
+          link={"Shop all deals"}
+        />
 
-      <div className="-mt-5">
         <CategoryList categories={gamingCategories} />
-      </div>
 
-      <ShoppingPerks />
+        <OffersList
+          offers={shoppingPerks}
+          title={"Enjoy your shopping perks"}
+          link={"Start Shopping"}
+        />
 
-      <div className="-mt-5">
         <ProductsList
           start={8}
           end={16}
           title={"Deals Under 250 EGP"}
           linkName={"See All Deals"}
         />
-      </div>
 
-      <div className="-mt-5">
         <CategoryList categories={organizersCategories} />
-      </div>
 
-      <ProductsImageList
-        title={"For Him, For Her & More"}
-        linkName={"Shope Now"}
-        start={0}
-        end={15}
-      />
+        <ProductsImageList
+          title={"For Him, For Her & More"}
+          linkName={"Shope Now"}
+          start={0}
+          end={15}
+        />
 
-      <div className="-mt-5">
         <ProductsImageList
           title={"Hair Styling, Electric Shavers & More"}
           linkName={"Shope Now"}
           start={15}
           end={30}
         />
-      </div>
 
-      <div className="-mt-5">
-        <GuideList />
+        <OffersList
+          offers={guides}
+          title={"Your Amazon go-to guide"}
+          link={"Learn More"}
+        />
       </div>
     </main>
   );

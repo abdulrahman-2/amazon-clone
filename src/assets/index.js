@@ -6,7 +6,13 @@ import bannerImgFour from "./banner/bannerImgFour.jpg";
 import bannerImgFive from "./banner/bannerImgFive.jpg";
 import bdFlag from "./bdFlag.webp";
 import cartIcon from "./cart.svg";
+import emptyCart from "./emptyCart.png";
 import egyptFlag from "./egypt.svg";
+import visa from "./payment-images/visa.svg";
+import discover from "./payment-images/discover.svg";
+import paypal from "./payment-images/paypal.svg";
+import verve from "./payment-images/verve.svg";
+import mastercard from "./payment-images/mastercard.svg";
 
 import car_compressors from "../assets/category/Car_compressors.jpg";
 import laptops from "../assets/category/laptops.jpg";
@@ -65,9 +71,15 @@ export {
   bannerImgThree,
   bannerImgFour,
   bannerImgFive,
+  emptyCart,
   bdFlag,
   cartIcon,
   egyptFlag,
+  visa,
+  discover,
+  paypal,
+  verve,
+  mastercard,
   car_compressors,
   laptops,
   mattressImage,

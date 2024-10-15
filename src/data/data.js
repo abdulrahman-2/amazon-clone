@@ -15,6 +15,33 @@ import {
   gaming,
   sport,
   amazon_Basket,
+  Budget_1,
+  Budget_2,
+  Budget_3,
+  Budget_4,
+  Budget_5,
+  Budget_6,
+  Budget_7,
+  Budget_8,
+  Budget_9,
+  perks_1,
+  perks_2,
+  perks_3,
+  perks_4,
+  perks_5,
+  perks_6,
+  perks_7,
+  perks_8,
+  perks_9,
+  guide_1,
+  guide_2,
+  guide_3,
+  guide_4,
+  guide_5,
+  guide_6,
+  guide_7,
+  guide_8,
+  guide_9,
 } from "@/assets";
 
 export const offers = [
@@ -107,4 +134,40 @@ export const organizersCategories = [
     image: payment,
     linkName: "See More",
   },
+];
+
+export const budgets = [
+  { id: 1, img: Budget_1 },
+  { id: 2, img: Budget_2 },
+  { id: 3, img: Budget_3 },
+  { id: 4, img: Budget_4 },
+  { id: 5, img: Budget_5 },
+  { id: 6, img: Budget_6 },
+  { id: 7, img: Budget_7 },
+  { id: 8, img: Budget_8 },
+  { id: 9, img: Budget_9 },
+];
+
+export const shoppingPerks = [
+  { id: 1, img: perks_1 },
+  { id: 2, img: perks_2 },
+  { id: 3, img: perks_3 },
+  { id: 4, img: perks_4 },
+  { id: 5, img: perks_5 },
+  { id: 6, img: perks_6 },
+  { id: 7, img: perks_7 },
+  { id: 8, img: perks_8 },
+  { id: 9, img: perks_9 },
+];
+
+export const guides = [
+  { id: 1, img: guide_1 },
+  { id: 2, img: guide_2 },
+  { id: 3, img: guide_3 },
+  { id: 4, img: guide_4 },
+  { id: 5, img: guide_5 },
+  { id: 6, img: guide_6 },
+  { id: 7, img: guide_7 },
+  { id: 8, img: guide_8 },
+  { id: 9, img: guide_9 },
 ];

@@ -1,15 +1,15 @@
-import { cartIcon, egyptFlag, logo } from "@/assets";
+import { egyptFlag, logo } from "@/assets";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { RiArrowDropDownFill } from "react-icons/ri";
-import { IoMenu } from "react-icons/io5";
 import { MdPersonOutline } from "react-icons/md";
 import { RiArrowDropRightLine } from "react-icons/ri";
-import Search from "../Search";
-import SignInBtn from "../SignInBtn";
 import HeaderCategories from "../categories/HeaderCategories";
 import Sidebar from "./Sidebar";
+import Search from "../searchBar/Search";
+import SignInBtn from "@/components/buttons/SignInBtn";
+import CartBtn from "../buttons/CartBtn";
 
 const Header = () => {
   return (
@@ -70,20 +70,7 @@ const Header = () => {
             </span>
             <MdPersonOutline size={30} className="text-white" />
           </div>
-          <Link
-            href="/cart"
-            className="text-white md:headerItem font-semibold flex"
-          >
-            <Image
-              src={cartIcon}
-              alt="cart"
-              className="w-auto h-8 md:h-11 object-cover"
-            />
-            <span className="self-end hidden md:flex">Cart</span>
-            <span className="absolute right-[22px] md:right-[67px] top-[22px] md:top-[20px] text-xs md:text-sm text-amazon_orangeDark">
-              0
-            </span>
-          </Link>
+          <CartBtn />
         </div>
       </div>
       <div className="px-3 bg-black h-auto lg:hidden block py-2">

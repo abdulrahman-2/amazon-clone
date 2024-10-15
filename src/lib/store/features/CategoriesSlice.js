@@ -1,10 +1,10 @@
-import { fetchData } from "@/services/apiService";
+import { getCategoriesList } from "@/lib/data/categoiresData";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async () => {
-    const data = await fetchData("/products/category-list");
+    const data = await getCategoriesList();
     return data;
   }
 );
