@@ -2,13 +2,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
+// Lazily initialize the cart state to avoid SSR issues
+const getInitialCartState = () => {
+  if (typeof window !== "undefined") {
+    // Only access localStorage in the browser
+    return JSON.parse(localStorage.getItem("cart")) ?? [];
+  }
+  return []; // Return an empty cart during SSR
+};
+
 const initialState = {
-  cart: JSON.parse(localStorage.getItem("cart")) ?? [],
+  cart: getInitialCartState(),
 };
 
 const updateLocalStorage = (cart) => {
   try {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (typeof window !== "undefined") {
+      // Only update localStorage in the browser
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
   } catch (error) {
     console.error("Failed to update localStorage:", error);
   }
