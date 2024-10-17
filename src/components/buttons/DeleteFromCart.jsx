@@ -1,4 +1,4 @@
-import { removeFromCart } from "@/lib/store/features/CartSlice";
+import { removeFromCart } from "@/src/lib/store/features/CartSlice";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 

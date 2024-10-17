@@ -42,7 +42,7 @@ import {
   guide_7,
   guide_8,
   guide_9,
-} from "@/assets";
+} from "@/src/assets";
 
 export const offers = [
   {

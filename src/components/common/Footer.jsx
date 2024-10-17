@@ -1,4 +1,4 @@
-import { egyptFlag, logo } from "@/assets";
+import { egyptFlag, logo } from "@/src/assets";
 import Image from "next/image";
 import Link from "next/link";
 import { TbWorld } from "react-icons/tb";

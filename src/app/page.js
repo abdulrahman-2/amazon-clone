@@ -1,7 +1,7 @@
-import CarouselBanner from "@/components/banner/CarouselBanner";
-import CategoryList from "@/components/categories/CategoryList";
-import ProductsImageList from "@/components/products/ProductsImagesList";
-import ProductsList from "@/components/products/ProductsList";
+import CarouselBanner from "@/src/components/banner/CarouselBanner";
+import CategoryList from "@/src/components/categories/CategoryList";
+import ProductsImageList from "@/src/components/products/ProductsImagesList";
+import ProductsList from "@/src/components/products/ProductsList";
 import {
   budgets,
   deals,
@@ -10,8 +10,8 @@ import {
   offers,
   organizersCategories,
   shoppingPerks,
-} from "@/lib/data/localData";
-import OffersList from "@/components/offersLists/OffersList";
+} from "@/src/lib/data/localData";
+import OffersList from "@/src/components/offersLists/OffersList";
 
 const Home = () => {
   return (

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { HiMiniXMark } from "react-icons/hi2";
-import { getCategoriesList } from "@/lib/data/apiData";
+import { getCategoriesList } from "@/src/lib/data/apiData";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");

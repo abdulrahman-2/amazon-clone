@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Sidebar from "../common/Sidebar";
 import { useEffect, useState } from "react";
-import { getCategoriesList } from "@/lib/data/apiData";
-import SignOutBtn from "@/components/buttons/SignOutBtn";
+import { getCategoriesList } from "@/src/lib/data/apiData";
 import { useSession } from "next-auth/react";
+import SignOutBtn from "../buttons/SignOutBtn";
 
 const HeaderCategories = () => {
   const [categoriesList, setCategoriesList] = useState([]);

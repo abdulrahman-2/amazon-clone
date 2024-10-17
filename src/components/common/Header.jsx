@@ -1,4 +1,6 @@
-import { egyptFlag, logo } from "@/assets";
+"use client";
+
+import { egyptFlag, logo } from "@/src/assets";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineLocationMarker } from "react-icons/hi";
@@ -8,10 +10,12 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import HeaderCategories from "../categories/HeaderCategories";
 import Sidebar from "./Sidebar";
 import Search from "../searchBar/Search";
-import SignInBtn from "@/components/buttons/SignInBtn";
+import SignInBtn from "@/src/components/buttons/SignInBtn";
 import CartBtn from "../buttons/CartBtn";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <div className="sticky top-0 z-50">
       {/* top header  */}
@@ -61,13 +65,15 @@ const Header = () => {
         </Link>
         <div className="flex items-center ml-auto">
           <div className="lg:hidden flex items-center text-white text-sm">
-            <span className="flex items-center">
-              sign in
-              <RiArrowDropRightLine
-                size={22}
-                className="text-amazon_orangeDark"
-              />
-            </span>
+            {!session && (
+              <Link href="/api/auth/signin" className="flex items-center">
+                sign in
+                <RiArrowDropRightLine
+                  size={22}
+                  className="text-amazon_orangeDark"
+                />
+              </Link>
+            )}
             <MdPersonOutline size={30} className="text-white" />
           </div>
           <CartBtn />

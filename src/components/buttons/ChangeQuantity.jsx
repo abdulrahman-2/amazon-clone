@@ -3,7 +3,7 @@
 import {
   decreaseQuantity,
   increaseQuantity,
-} from "@/lib/store/features/CartSlice";
+} from "@/src/lib/store/features/CartSlice";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 

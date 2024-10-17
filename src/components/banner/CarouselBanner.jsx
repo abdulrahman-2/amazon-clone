@@ -1,18 +1,17 @@
 "use client";
 
+import Image from "next/image";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
 import {
   bannerImgFive,
   bannerImgFour,
   bannerImgOne,
   bannerImgThree,
   bannerImgTwo,
-} from "@/assets";
-
-import Image from "next/image";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay } from "swiper/modules";
+} from "@/src/assets";
 
 const CarouselBanner = () => {
   const bannerImages = [

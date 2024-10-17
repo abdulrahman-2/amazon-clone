@@ -1,9 +1,9 @@
 "use client";
 
-import { addToCart } from "@/lib/store/features/CartSlice";
-import ChangeQuantity from "./ChangeQuantity";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import { addToCart } from "@/src/lib/store/features/CartSlice";
+import ChangeQuantity from "./ChangeQuantity";
 
 const AddToCartBtn = ({ product }) => {
   const dispatch = useDispatch();

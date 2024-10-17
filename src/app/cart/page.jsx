@@ -1,9 +1,9 @@
 "use client";
 
-import { emptyCart } from "@/assets";
-import ChangeQuantity from "@/components/buttons/ChangeQuantity";
-import DeleteFromCart from "@/components/buttons/DeleteFromCart";
-import ProductsList from "@/components/products/ProductsList";
+import { emptyCart } from "@/src/assets";
+import ChangeQuantity from "@/src/components/buttons/ChangeQuantity";
+import DeleteFromCart from "@/src/components/buttons/DeleteFromCart";
+import ProductsList from "@/src/components/products/ProductsList";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

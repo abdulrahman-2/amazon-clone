@@ -1,5 +1,5 @@
-import ProductCard from "@/components/singleProduct/ProductCard";
-import { getProducts } from "@/lib/data/apiData";
+import ProductCard from "@/src/components/singleProduct/ProductCard";
+import { getProducts } from "@/src/lib/data/apiData";
 
 const Categories = async () => {
   const products = await getProducts();

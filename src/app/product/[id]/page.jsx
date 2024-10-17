@@ -1,10 +1,10 @@
-import ProductImages from "@/components/singleProduct/ProductImages";
 import { FaRegEye } from "react-icons/fa";
 import Image from "next/image";
 import { discover, mastercard, paypal, verve, visa } from "@/assets";
 import { MdStar } from "react-icons/md";
-import AddToCartBtn from "@/components/buttons/AddToCartBtn";
-import { getSingleProduct } from "@/lib/data/apiData";
+import { getSingleProduct } from "@/src/lib/data/apiData";
+import ProductImages from "@/src/components/singleProduct/ProductImages";
+import AddToCartBtn from "@/src/components/buttons/AddToCartBtn";
 
 // Custom metadata generation
 export const generateMetadata = async ({ params }) => {

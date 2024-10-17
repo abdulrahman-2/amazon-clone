@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
-import Notifications from "@/components/notifications/Notifications";
-import LayoutProvider from "@/components/providers/LayoutProvider";
+import Header from "@/src/components/common/Header";
+import Footer from "@/src/components/common/Footer";
+import Notifications from "@/src/components/notifications/Notifications";
+import LayoutProvider from "@/src/components/providers/LayoutProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],

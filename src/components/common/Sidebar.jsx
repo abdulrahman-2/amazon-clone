@@ -7,8 +7,8 @@ import { HiMiniXMark } from "react-icons/hi2";
 import { RiArrowDownSLine } from "react-icons/ri";
 import Image from "next/image";
 import { TbWorld } from "react-icons/tb";
-import { egyptFlag } from "@/assets";
-import { getCategoriesList } from "@/lib/data/apiData";
+import { egyptFlag } from "@/src/assets";
+import { getCategoriesList } from "@/src/lib/data/apiData";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);

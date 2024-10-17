@@ -1,5 +1,5 @@
 "use client";
-import { cartIcon } from "@/assets";
+import { cartIcon } from "@/src/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

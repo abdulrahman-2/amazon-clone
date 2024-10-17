@@ -2,15 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import ProductCard from "../singleProduct/ProductCard";
-import Loading from "@/app/loading";
+import Loading from "@/src/app/loading";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 import Title from "../title/Title";
+import { getProducts } from "@/src/lib/data/apiData";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { getProducts } from "@/lib/data/apiData";
 
 const ProductsList = ({ start, end, title, linkName }) => {
   const [products, setProducts] = useState([]);
