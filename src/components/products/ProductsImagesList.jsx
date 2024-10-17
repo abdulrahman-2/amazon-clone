@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { getProducts } from "@/lib/data/apiData";
+import { getProducts } from "@/src/lib/data/apiData";
 
 const ProductsImageList = ({ start, end, title, linkName }) => {
   const [products, setProducts] = useState([]);

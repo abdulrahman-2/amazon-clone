@@ -1,6 +1,6 @@
 import { FaRegEye } from "react-icons/fa";
 import Image from "next/image";
-import { discover, mastercard, paypal, verve, visa } from "@/assets";
+import { discover, mastercard, paypal, verve, visa } from "@/src/assets";
 import { MdStar } from "react-icons/md";
 import { getSingleProduct } from "@/src/lib/data/apiData";
 import ProductImages from "@/src/components/singleProduct/ProductImages";
