@@ -1,12 +1,9 @@
 "use client";
 
-import { fetchCategories } from "@/lib/store/features/CategoriesSlice";
 import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { HiMiniXMark } from "react-icons/hi2";
-import { useDispatch, useSelector } from "react-redux";
-import Loading from "@/app/loading";
-import { getCategoriesList } from "@/lib/data/categoiresData";
+import { getCategoriesList } from "@/lib/data/apiData";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,12 +11,8 @@ const Search = () => {
 
   useEffect(() => {
     const fetchCategoriesList = async () => {
-      try {
-        const data = await getCategoriesList();
-        setCategoriesList(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
+      const data = await getCategoriesList();
+      setCategoriesList(data);
     };
 
     fetchCategoriesList();

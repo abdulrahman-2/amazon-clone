@@ -1,4 +1,5 @@
 import { removeFromCart } from "@/lib/store/features/CartSlice";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 
 const DeleteFromCart = ({ product }) => {
@@ -6,6 +7,7 @@ const DeleteFromCart = ({ product }) => {
 
   const handleDelete = (product) => {
     dispatch(removeFromCart(product));
+    toast.success(`${product.title.substring(0, 12)}... removed from cart`);
   };
   return (
     <button

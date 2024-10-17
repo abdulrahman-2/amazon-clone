@@ -4,7 +4,7 @@ import Image from "next/image";
 import { discover, mastercard, paypal, verve, visa } from "@/assets";
 import { MdStar } from "react-icons/md";
 import AddToCartBtn from "@/components/buttons/AddToCartBtn";
-import { getSingleProduct } from "@/lib/data/productData";
+import { getSingleProduct } from "@/lib/data/apiData";
 
 // Custom metadata generation
 export const generateMetadata = async ({ params }) => {

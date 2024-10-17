@@ -1,10 +1,10 @@
 import ProductCard from "@/components/singleProduct/ProductCard";
-import { getProducts } from "@/lib/data/productData";
+import { getProducts } from "@/lib/data/apiData";
 
 const Categories = async () => {
   const products = await getProducts();
   return (
-    <div className="p-3 my-5 md:my-10 container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+    <div className="p-3 my-5 md:my-10 container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

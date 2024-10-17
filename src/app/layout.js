@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import Notifications from "@/components/notifications/Notifications";
-import StoreProvider from "./StoreProvider";
+import LayoutProvider from "@/components/providers/LayoutProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,15 +18,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <StoreProvider>
-      <html lang="en">
-        <body className={poppins.className}>
+    <html lang="en">
+      <body className={poppins.className}>
+        <LayoutProvider>
           <Notifications />
           <Header />
           {children}
           <Footer />
-        </body>
-      </html>
-    </StoreProvider>
+        </LayoutProvider>
+      </body>
+    </html>
   );
 }

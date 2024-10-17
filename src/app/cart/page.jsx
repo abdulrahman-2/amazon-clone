@@ -4,17 +4,17 @@ import { emptyCart } from "@/assets";
 import ChangeQuantity from "@/components/buttons/ChangeQuantity";
 import DeleteFromCart from "@/components/buttons/DeleteFromCart";
 import ProductsList from "@/components/products/ProductsList";
-import { useAppSelector } from "@/lib/store/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
-  const calculateTotal = (cart) => {
+  const calculateTotal = (cartItems) => {
     let total = 0;
-    cart.forEach((item) => {
+    cartItems.forEach((item) => {
       total += item.price * item.quantity;
     });
     return total.toFixed(2);
@@ -30,7 +30,7 @@ const Cart = () => {
 
   return (
     <div className="h-full w-full bg-gray-200">
-      {cart.length === 0 ? (
+      {cartItems.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-screen -mt-28">
           <Image
             src={emptyCart}
@@ -55,7 +55,7 @@ const Cart = () => {
               <hr className="hidden md:flex" />
 
               <div className="flex flex-col gap-5 p-5">
-                {cart.map((item) => (
+                {cartItems.map((item) => (
                   <div key={item?.id} className="flex gap-3 md:gap-5">
                     <Link href={`/product/${item?.id}`}>
                       <div className="relative bg-gray-200 w-28 h-28 md:w-40 md:h-40 rounded-md">
@@ -129,10 +129,10 @@ const Cart = () => {
                 <h2 className="font-semibold text-xl">Cart Summary</h2>
                 <hr />
                 <p className="text-lg">
-                  Subtotal ({cart.length} items):{" "}
+                  Subtotal ({cartItems.length} items):{" "}
                   <span className="font-bold">
                     <sup>EGP</sup>
-                    {calculateTotal(cart)}
+                    {calculateTotal(cartItems)}
                   </span>
                 </p>
                 <button className="w-full rounded-full bg-amazon_yellowDark text-white py-2 mt-3">

@@ -10,7 +10,7 @@ import {
   offers,
   organizersCategories,
   shoppingPerks,
-} from "@/data/data";
+} from "@/lib/data/localData";
 import OffersList from "@/components/offersLists/OffersList";
 
 const Home = () => {

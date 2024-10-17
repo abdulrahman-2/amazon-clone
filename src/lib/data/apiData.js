@@ -36,3 +36,13 @@ export const getSingleProduct = async (id) => {
     throw error; // Re-throw the error for further handling if needed
   }
 };
+
+export const getCategoriesList = async () => {
+  try {
+    const response = await apiClient.get("/products/category-list");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    throw error;
+  }
+};

@@ -1,87 +1,45 @@
-"use client";
 import { createSlice } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
-
-// Lazily initialize the cart state to avoid SSR issues
-const getInitialCartState = () => {
-  if (typeof window !== "undefined") {
-    // Only access localStorage in the browser
-    return JSON.parse(localStorage.getItem("cart")) ?? [];
-  }
-  return []; // Return an empty cart during SSR
-};
 
 const initialState = {
-  cart: getInitialCartState(),
+  cartItems: [],
 };
-
-const updateLocalStorage = (cart) => {
-  try {
-    if (typeof window !== "undefined") {
-      // Only update localStorage in the browser
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  } catch (error) {
-    console.error("Failed to update localStorage:", error);
-  }
-};
-
-const getShortTitle = (title) => `${title?.substring(0, 10)}...` || "Item";
 
 const CartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemIndex = state.cart.findIndex(
+      const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
-        if (state.cart[itemIndex].quantity < 10) {
-          state.cart[itemIndex].quantity += 1;
-          toast.success(
-            `${getShortTitle(state.cart[itemIndex].title)} quantity increased`
-          );
-        }
+        state.cartItems[itemIndex].quantity += 1;
       } else {
-        state.cart.push({ ...action.payload, quantity: 1 });
-        toast.success(`${getShortTitle(action.payload.title)} added to cart`);
+        state.cartItems.push({ ...action.payload, quantity: 1 });
       }
-      updateLocalStorage(state.cart);
     },
     removeFromCart: (state, action) => {
-      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
-      toast.success(`${getShortTitle(action.payload.title)} removed from cart`);
-      updateLocalStorage(state.cart);
+      state.cartItems = state.cartItems.filter(
+        (item) => item.id !== action.payload.id
+      );
     },
     increaseQuantity: (state, action) => {
-      const itemIndex = state.cart.findIndex(
+      const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      if (itemIndex >= 0 && state.cart[itemIndex].quantity < 10) {
-        state.cart[itemIndex].quantity += 1;
-        toast.success(
-          `${getShortTitle(state.cart[itemIndex].title)} quantity increased`
-        );
-        updateLocalStorage(state.cart);
+      if (itemIndex >= 0 && state.cartItems[itemIndex].quantity < 10) {
+        state.cartItems[itemIndex].quantity += 1;
       }
     },
     decreaseQuantity: (state, action) => {
-      const itemIndex = state.cart.findIndex(
+      const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      if (itemIndex >= 0 && state.cart[itemIndex].quantity > 1) {
-        state.cart[itemIndex].quantity -= 1;
-        toast.success(
-          `${getShortTitle(state.cart[itemIndex].title)} quantity decreased`
-        );
-      } else if (itemIndex >= 0) {
-        toast.success(
-          `${getShortTitle(state.cart[itemIndex].title)} removed from cart`
-        );
-        state.cart.splice(itemIndex, 1);
+      if (itemIndex >= 0 && state.cartItems[itemIndex].quantity > 1) {
+        state.cartItems[itemIndex].quantity -= 1;
+      } else if (itemIndex >= 0 && state.cartItems[itemIndex].quantity === 1) {
+        state.cartItems.splice(itemIndex, 1);
       }
-      updateLocalStorage(state.cart);
     },
   },
 });

@@ -8,7 +8,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import Image from "next/image";
 import { TbWorld } from "react-icons/tb";
 import { egyptFlag } from "@/assets";
-import { getCategoriesList } from "@/lib/data/categoiresData";
+import { getCategoriesList } from "@/lib/data/apiData";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -17,12 +17,8 @@ const Sidebar = () => {
 
   useEffect(() => {
     const fetchCategoriesList = async () => {
-      try {
-        const data = await getCategoriesList();
-        setCategoriesList(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
+      const data = await getCategoriesList();
+      setCategoriesList(data);
     };
 
     fetchCategoriesList();
@@ -113,7 +109,7 @@ const Sidebar = () => {
             <h3 className="text-lg font-semibold mb-3">Shop by Category</h3>
             <ul className="flex flex-col gap-3">
               {displayedCategories.map((category) => (
-                <li key={category.id} className="text-black text-sm">
+                <li key={category} className="text-black text-sm">
                   {category}
                 </li>
               ))}

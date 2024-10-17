@@ -1,25 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import Loading from "@/app/loading";
 import Sidebar from "../common/Sidebar";
-import { getCategoriesList } from "@/lib/data/categoiresData";
 import { useEffect, useState } from "react";
+import { getCategoriesList } from "@/lib/data/apiData";
+import SignOutBtn from "@/components/buttons/SignOutBtn";
+import { useSession } from "next-auth/react";
 
 const HeaderCategories = () => {
   const [categoriesList, setCategoriesList] = useState([]);
 
   useEffect(() => {
     const fetchCategoriesList = async () => {
-      try {
-        const data = await getCategoriesList();
-        setCategoriesList(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
+      const data = await getCategoriesList();
+      setCategoriesList(data);
     };
     fetchCategoriesList();
   });
+
+  const { data: session } = useSession();
 
   return (
     <div>
@@ -45,6 +44,7 @@ const HeaderCategories = () => {
         <Link href="/help" className="headerItem h-full flex-shrink-0">
           Help
         </Link>
+        {session && <SignOutBtn />}
       </div>
     </div>
   );

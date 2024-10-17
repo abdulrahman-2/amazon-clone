@@ -2,20 +2,22 @@
 
 import { addToCart } from "@/lib/store/features/CartSlice";
 import ChangeQuantity from "./ChangeQuantity";
-import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const AddToCartBtn = ({ product }) => {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
-  const { cart } = useAppSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const addToCartHandler = (product) => {
     dispatch(addToCart(product));
+    toast.success(`${product.title.substring(0, 12)}... added to cart`);
   };
 
   // check item in cart
   const isInCart = (id) => {
-    return cart.some((item) => item.id === id);
+    return cartItems.some((item) => item.id === id);
   };
   return (
     <>
