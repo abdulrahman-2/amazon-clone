@@ -40,6 +40,7 @@ const CarouselBanner = () => {
             <Image
               src={banner.source}
               alt={banner.title}
+              priority
               className="w-full h-[250px] md:h-[calc(100vh-100px)] object-cover"
             />
           </SwiperSlide>

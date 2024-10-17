@@ -60,6 +60,7 @@ const OffersList = ({ offers, title, link }) => {
                   src={offer.img}
                   alt={`Budget item ${offer.id}`}
                   fill
+                  loading="lazy"
                   className="object-contain"
                   sizes="(max-width: 640px) 50vw, 
                          (max-width: 768px) 33vw, 

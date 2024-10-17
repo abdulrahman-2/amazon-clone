@@ -13,6 +13,7 @@ const ProductCard = ({ product }) => {
             alt="product image"
             width={100}
             height={200}
+            loading="lazy"
             className="w-full h-full object-contain"
           />
         </div>
